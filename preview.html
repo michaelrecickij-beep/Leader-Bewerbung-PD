@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LSPD · Marvin Benko · Bewerbung</title>
+<style>
+:root{
+  --bg:#0d1117;
+  --panel:#151b24;
+  --panel2:#1b2330;
+  --line:#303b4b;
+  --text:#f2f4f7;
+  --muted:#aeb8c7;
+  --blue:#6ea8ff;
+  --blue2:#9bc3ff;
+  --white:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;line-height:1.65;
+}
+a{color:inherit}
+.header{
+  position:sticky;top:0;z-index:10;
+  background:rgba(13,17,23,.94);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  max-width:1180px;margin:auto;padding:16px 28px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.brand{font-weight:800;letter-spacing:.12em;font-size:.8rem}
+.brand span{color:var(--blue)}
+.navlinks{display:flex;gap:22px;font-size:.78rem;color:var(--muted)}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:var(--blue2)}
+.hero{
+  min-height:86vh;max-width:1180px;margin:auto;padding:110px 28px 80px;
+  display:grid;grid-template-columns:1.25fr .75fr;gap:70px;align-items:center;
+}
+.tag{
+  display:inline-block;border:1px solid var(--line);border-radius:999px;
+  padding:7px 13px;color:var(--blue2);font-size:.72rem;
+  letter-spacing:.13em;text-transform:uppercase;margin-bottom:24px;
+}
+h1{font-size:clamp(3.2rem,8vw,7rem);line-height:.92;margin:0 0 25px;letter-spacing:-.055em}
+.hero h1 small{display:block;font-size:.23em;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:15px}
+.lead{font-size:1.08rem;color:var(--muted);max-width:690px}
+.data-card{
+  background:linear-gradient(145deg,var(--panel2),var(--panel));
+  border:1px solid var(--line);border-radius:18px;padding:28px;
+  box-shadow:0 25px 70px rgba(0,0,0,.25);
+}
+.card-top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:12px}
+.card-top strong{font-size:.85rem;letter-spacing:.1em;text-transform:uppercase}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--blue);box-shadow:0 0 18px var(--blue)}
+.info{display:grid;grid-template-columns:1fr 1fr}
+.info div{padding:15px 8px;border-bottom:1px solid var(--line)}
+.info div:nth-last-child(-n+2){border-bottom:0}
+.k{display:block;font-size:.67rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+.v{display:block;margin-top:3px;font-weight:700}
+section{max-width:1180px;margin:auto;padding:100px 28px;border-top:1px solid var(--line)}
+.section-head{display:flex;gap:18px;align-items:flex-end;margin-bottom:45px}
+.num{font-size:.75rem;color:var(--blue);font-weight:800;letter-spacing:.14em}
+h2{font-size:clamp(2rem,4vw,3.4rem);line-height:1.05;margin:0;letter-spacing:-.03em}
+h2 span{color:var(--blue2)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:30px}
+.panel h3{margin:0 0 12px;font-size:1.05rem}
+.panel p{margin:0;color:var(--muted)}
+.statement{
+  border-left:4px solid var(--blue);padding:20px 0 20px 28px;
+  font-size:1.2rem;max-width:900px;
+}
+.points{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+.point{padding:25px;background:var(--panel);border:1px solid var(--line);border-radius:14px}
+.point b{display:block;margin-bottom:8px}
+.point p{margin:0;color:var(--muted);font-size:.9rem}
+.proposals{display:grid;gap:14px}
+.proposal{
+  display:grid;grid-template-columns:55px 1fr;gap:20px;
+  padding:24px;background:var(--panel);border:1px solid var(--line);border-radius:14px;
+}
+.proposal .nr{font-size:1.4rem;font-weight:800;color:var(--blue)}
+.proposal h3{margin:0 0 5px;font-size:1rem}
+.proposal p{margin:0;color:var(--muted);font-size:.9rem}
+.rank-layout{display:grid;grid-template-columns:1.15fr .85fr;gap:45px}
+.rank-group{margin-bottom:28px}
+.rank-title{
+  color:var(--blue2);font-size:.7rem;letter-spacing:.15em;
+  text-transform:uppercase;padding-bottom:8px;border-bottom:1px solid var(--line);margin-bottom:6px;
+}
+.rank-row{display:flex;gap:15px;padding:6px 0}
+.rank-no{width:30px;color:var(--blue);font-weight:800;font-family:monospace}
+.rank-name{font-weight:600}
+.dept{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:21px;margin-bottom:13px}
+.dept strong{color:var(--blue2);font-size:.88rem}
+.dept p{color:var(--muted);font-size:.84rem;margin:7px 0 0}
+.req{margin-top:28px;padding:25px;border:1px dashed var(--line);border-radius:14px}
+.req ul{margin:10px 0 0;padding-left:20px;color:var(--muted)}
+.footer{text-align:center;padding:60px 28px;color:var(--muted);border-top:1px solid var(--line)}
+.footer strong{color:var(--text)}
+@media(max-width:850px){
+  .hero,.rank-layout,.grid{grid-template-columns:1fr}
+  .points{grid-template-columns:1fr}
+  .navlinks{display:none}
+  .hero{padding-top:80px}
+  .info{grid-template-columns:1fr}
+  .info div:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="nav">
+    <div class="brand">LOS SANTOS <span>POLICE DEPARTMENT</span></div>
+    <nav class="navlinks">
+      <a href="#profil">Profil</a>
+      <a href="#motivation">Motivation</a>
+      <a href="#konzept">Konzept</a>
+      <a href="#struktur">Struktur</a>
+      <a href="#abschluss">Abschluss</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div>
+    <div class="tag">Interne Bewerbung · 2026</div>
+    <h1><small>Bewerbung von</small>Marvin<br>Benko</h1>
+    <p class="lead">
+      Diese Bewerbung steht für den Anspruch, Verantwortung zu übernehmen,
+      das Team zu stärken und das LSPD durch klare Abläufe, aktives RP und
+      ein professionelles Auftreten weiterzuentwickeln.
+    </p>
+  </div>
+
+  <aside class="data-card">
+    <div class="card-top">
+      <strong>Personalien</strong><span class="dot"></span>
+    </div>
+    <div class="info">
+      <div><span class="k">Reallife Name</span><span class="v">Marvin</span></div>
+      <div><span class="k">Alter</span><span class="v">17</span></div>
+      <div><span class="k">Discord Name</span><span class="v">marvinbb</span></div>
+      <div><span class="k">IC Name</span><span class="v">Marvin Benko</span></div>
+      <div><span class="k">Reisepass NR</span><span class="v">158679</span></div>
+      <div><span class="k">Visumsstufe</span><span class="v">46</span></div>
+    </div>
+  </aside>
+</section>
+
+<section id="profil">
+  <div class="section-head"><div class="num">01</div><h2>Mein <span>Profil</span></h2></div>
+  <div class="grid">
+    <div class="panel">
+      <h3>Wer steckt hinter der Bewerbung?</h3>
+      <p>
+        Mein Name ist Marvin Benko. Mit dieser Bewerbung möchte ich zeigen,
+        dass ich nicht nur Interesse an einer Position innerhalb des LSPD habe,
+        sondern bereit bin, mich aktiv einzubringen und Verantwortung zu tragen.
+      </p>
+    </div>
+    <div class="panel">
+      <h3>Mein Verständnis von Dienst</h3>
+      <p>
+        Für mich bedeutet Polizeiarbeit mehr als Streife zu fahren. Dazu gehören
+        Kommunikation, Teamarbeit, sauberes RP, nachvollziehbare Entscheidungen
+        und ein respektvoller Umgang mit Bürgern und Kollegen.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="motivation">
+  <div class="section-head"><div class="num">02</div><h2>Warum ich mich <span>bewerbe</span></h2></div>
+  <div class="statement">
+    Ich möchte mich nicht nur durch einen Rang definieren lassen. Entscheidend ist,
+    welchen Beitrag man für das gesamte Department leistet. Genau dort möchte ich
+    ansetzen: Verantwortung übernehmen, Probleme früh erkennen und gemeinsam
+    mit anderen Lösungen finden.
+  </div>
+  <div class="points">
+    <div class="point"><b>Verantwortung</b><p>Aufgaben zuverlässig übernehmen und Entscheidungen nicht unnötig auf andere abwälzen.</p></div>
+    <div class="point"><b>Teamgeist</b><p>Kollegen unterstützen, Wissen teilen und als Einheit auftreten.</p></div>
+    <div class="point"><b>Disziplin</b><p>Regeln, Funkdisziplin und interne Abläufe konsequent einhalten.</p></div>
+  </div>
+</section>
+
+<section id="konzept">
+  <div class="section-head"><div class="num">03</div><h2>Mein <span>Konzept</span></h2></div>
+  <div class="proposals">
+    <div class="proposal">
+      <div class="nr">01</div><div><h3>Bessere interne Kommunikation</h3><p>Informationen sollen schnell, verständlich und an die richtigen Personen weitergegeben werden. Dadurch werden unnötige Missverständnisse im Dienst reduziert.</p></div>
+    </div>
+    <div class="proposal">
+      <div class="nr">02</div><div><h3>Stärkeres Ausbildungs-RP</h3><p>Neue Mitarbeiter sollen nicht einfach nur eingewiesen werden, sondern praktische Situationen kennenlernen und Sicherheit im Umgang mit Funk, Streife und Einsätzen entwickeln.</p></div>
+    </div>
+    <div class="proposal">
+      <div class="nr">03</div><div><h3>Mehr aktives Stadt-RP</h3><p>Das LSPD sollte sichtbar und ansprechbar sein. Kontrollpunkte, Verkehrskontrollen und normale Streifen können genutzt werden, um mehr Situationen mit Bürgern entstehen zu lassen.</p></div>
+    </div>
+    <div class="proposal">
+      <div class="nr">04</div><div><h3>Faire Entscheidungen</h3><p>Ränge, Aufgaben und Verantwortlichkeiten sollten anhand von Leistung, Verhalten und Zuverlässigkeit vergeben werden und für die Beteiligten nachvollziehbar bleiben.</p></div>
+    </div>
+    <div class="proposal">
+      <div class="nr">05</div><div><h3>Behördenübergreifende Zusammenarbeit</h3><p>Bei größeren Lagen sollte die Zusammenarbeit mit anderen staatlichen Organisationen sauber vorbereitet und im RP sinnvoll ausgespielt werden.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="struktur">
+  <div class="section-head"><div class="num">04</div><h2>Ränge & <span>Abteilungen</span></h2></div>
+  <div class="rank-layout">
+    <div>
+
+      <div class="rank-group">
+        <div class="rank-title">Leaderschaft</div>
+        <div class="rank-row"><span class="rank-no">30</span><span class="rank-name">Chief of Police</span></div>
+        <div class="rank-row"><span class="rank-no">29</span><span class="rank-name">Deputy Chief of Police</span></div>
+        <div class="rank-row"><span class="rank-no">28</span><span class="rank-name">Ass. Chief of Police</span></div>
+      </div>
+
+      <div class="rank-group">
+        <div class="rank-title">Abteilungsleitung</div>
+        <div class="rank-row"><span class="rank-no">27</span><span class="rank-name">Curator of Department</span></div>
+        <div class="rank-row"><span class="rank-no">26</span><span class="rank-name">Chief of Department</span></div>
+        <div class="rank-row"><span class="rank-no">25</span><span class="rank-name">Deputy Chief of Department</span></div>
+      </div>
+
+      <div class="rank-group">
+        <div class="rank-title">High Command</div>
+        <div class="rank-row"><span class="rank-no">24</span><span class="rank-name">Police Lieutenant</span></div>
+        <div class="rank-row"><span class="rank-no">23</span><span class="rank-name">Police Commander</span></div>
+        <div class="rank-row"><span class="rank-no">22</span><span class="rank-name">Police Captain</span></div>
+      </div>
+
+      <div class="rank-group">
+        <div class="rank-title">Media Department</div>
+        <div class="rank-row"><span class="rank-no">21</span><span class="rank-name">Special Police Officer</span></div>
+        <div class="rank-row"><span class="rank-no">20</span><span class="rank-name">HR Manager</span></div>
+        <div class="rank-row"><span class="rank-no">19</span><span class="rank-name">S.W.A.T. Captain</span></div>
+        <div class="rank-row"><span class="rank-no">18</span><span class="rank-name">Press Officer</span></div>
+      </div>
+
+      <div class="rank-group">
+        <div class="rank-title">Command</div>
+        <div class="rank-row"><span class="rank-no">17</span><span class="rank-name">Inspector</span></div>
+        <div class="rank-row"><span class="rank-no">16</span><span class="rank-name">Detective</span></div>
+        <div class="rank-row"><span class="rank-no">15</span><span class="rank-name">Senior Sergeant</span></div>
+        <div class="rank-row"><span class="rank-no">14</span><span class="rank-name">Sergeant</span></div>
+        <div class="rank-row"><span class="rank-no">13</span><span class="rank-name">Junior Sergeant</span></div>
+        <div class="rank-row"><span class="rank-no">12</span><span class="rank-name">Senior Corporal</span></div>
+        <div class="rank-row"><span class="rank-no">11</span><span class="rank-name">Corporal</span></div>
+      </div>
+
+      <div class="rank-group">
+        <div class="rank-title">Officer</div>
+        <div class="rank-row"><span class="rank-no">10</span><span class="rank-name">Supervising Officer</span></div>
+        <div class="rank-row"><span class="rank-no">09</span><span class="rank-name">Instructing Officer</span></div>
+        <div class="rank-row"><span class="rank-no">08</span><span class="rank-name">Officer First Class</span></div>
+        <div class="rank-row"><span class="rank-no">07</span><span class="rank-name">Senior Officer</span></div>
+        <div class="rank-row"><span class="rank-no">06</span><span class="rank-name">Officer II</span></div>
+        <div class="rank-row"><span class="rank-no">05</span><span class="rank-name">Officer I</span></div>
+        <div class="rank-row"><span class="rank-no">04</span><span class="rank-name">Rookie</span></div>
+      </div>
+
+      <div class="rank-group">
+        <div class="rank-title">TOW & Sonstige</div>
+        <div class="rank-row"><span class="rank-no">03</span><span class="rank-name">Traffic Officer</span></div>
+        <div class="rank-row"><span class="rank-no">02</span><span class="rank-name">Facility Manager</span></div>
+        <div class="rank-row"><span class="rank-no">01</span><span class="rank-name">Suspended</span></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="dept"><strong>HR — Human Resources</strong><p>Zuständig für Ranganpassungen sowie Bewerbungsphasen und Orgawechsel.</p></div>
+      <div class="dept"><strong>S.W.A.T. — Special Weapons and Tactics</strong><p>Spezialeinheit des LSPD, zuständig für risikoreiche Einsätze, wöchentliche Checkpoints und Ghettostreifen.</p></div>
+      <div class="dept"><strong>IA — Internal Affairs</strong><p>Kümmert sich um interne Angelegenheiten und ahndet Fehlverhalten von Mitarbeitern.</p></div>
+      <div class="dept"><strong>TD — Training Department</strong><p>Verantwortlich für die Ausbildung neuer und bestehender Mitarbeiter.</p></div>
+      <div class="dept"><strong>TF — Task Force</strong><p>Zuständig für Informationsbeschaffung und die Dokumentation krimineller Aktivitäten im Staat.</p></div>
+      <div class="dept"><strong>TOW — Traffic / Take off Weight</strong><p>Hält die Straßen von Los Santos frei und ahndet Falschparker sowie Geschwindigkeitsverstöße.</p></div>
+      <div class="dept"><strong>PR — Public Relations</strong><p>Organisiert unterhaltsame Events und sorgt für den community-nahen Teil des LSPD.</p></div>
+
+      <div class="req">
+        <strong>Bewerbungsvoraussetzungen</strong>
+        <ul>
+          <li>Visum mindestens 10 (TOW: mindestens 5)</li>
+          <li>Geistige Reife von 15 Jahren</li>
+          <li>Gültiger Waffen- und Führerschein</li>
+          <li>Rucksack Level 3</li>
+          <li>Straffreie Akte</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="abschluss">
+  <div class="section-head"><div class="num">05</div><h2>Mein <span>Schlusswort</span></h2></div>
+  <div class="grid">
+    <div class="panel">
+      <h3>Mein Anspruch</h3>
+      <p>
+        Ich möchte mich weiterentwickeln, Verantwortung übernehmen und das LSPD
+        aktiv mitgestalten. Dabei steht für mich gutes RP genauso im Vordergrund
+        wie ein respektvoller Umgang innerhalb des Teams.
+      </p>
+    </div>
+    <div class="panel">
+      <h3>Vielen Dank</h3>
+      <p>
+        Vielen Dank für die Zeit und Aufmerksamkeit. Ich hoffe, dass meine
+        Bewerbung einen guten Eindruck vermittelt und ich die Möglichkeit
+        bekomme, meine Motivation auch persönlich unter Beweis zu stellen.
+      </p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer" id="footer">
+  <strong>Marvin Benko</strong><br>
+  LSPD Bewerbung · Los Santos Police Department · 2026
+</footer>
+
+</body>
+</html>
